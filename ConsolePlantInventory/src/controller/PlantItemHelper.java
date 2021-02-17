@@ -15,7 +15,7 @@ import model.PlantItem;
  * Feb 11, 2021
  */
 public class PlantItemHelper {
-	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("ConsoleShoppingList ");
+	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("ConsolePlantInventory");
 	public void insertItem(PlantItem li) {
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();

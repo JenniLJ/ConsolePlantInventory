@@ -6,6 +6,7 @@ package model;
  * Feb 11, 2021
  */
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
