@@ -16,27 +16,27 @@ import model.PlantItem;
  */
 public class PlantItemHelper {
 	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("ConsolePlantInventory");
-	public void insertItem(PlantItem li) {
+	public void insertItem(PlantItem pi) {
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
-		em.persist(li);
+		em.persist(pi);
 		em.getTransaction().commit();
 		em.close();
 
 	}
-	public List<PlantItem> showAllItems(){
+	public List<PlantItem> showAllPlantItems(){
 		EntityManager em = emfactory.createEntityManager();
-			List<PlantItem> allItems = em.createQuery("SELECT i FROM ListItem i").getResultList();
+			List<PlantItem> allItems = em.createQuery("SELECT i FROM PlantItem i").getResultList();
 			return allItems;
 	}
 	public void deleteItem(PlantItem toDelete) {
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
-		TypedQuery<PlantItem> typedQuery = em.createQuery("select li from ListItem li where li.store = :selectedStore and li.item = :selectedItem", PlantItem.class);
+		TypedQuery<PlantItem> typedQuery = em.createQuery("select pi from PlantItem pi where pi.plantType = :selectedPlantType and pi.location = :selectedLocation", PlantItem.class);
 
 //Substitute parameter with actual data from the toDelete item
-		typedQuery.setParameter("selectedStore", toDelete.getPlantType());
-		typedQuery.setParameter("selectedItem", toDelete.getLocation());
+		typedQuery.setParameter("selectedPlantType", toDelete.getPlantType());
+		typedQuery.setParameter("selectedLocation", toDelete.getLocation());
 
 		//we only want one result
 		typedQuery.setMaxResults(1);
@@ -50,6 +50,10 @@ public class PlantItemHelper {
 		em.close();
 		
 	}
+	
+	/**
+	 * @param toEdit
+	 */
 	
 	public void updateItem(PlantItem toEdit) {
 		// TODO Auto-generated method stub
@@ -78,12 +82,12 @@ public class PlantItemHelper {
 	 * @param plantTypeName
 	 * @return
 	 */
-	public List<PlantItem> searchForItemByStore(String plantTypeName) {
+	public List<PlantItem> searchForItemByPlantType(String plantTypeName) {
 		// TODO Auto-generated method stub
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
-		TypedQuery<PlantItem> typedQuery = em.createQuery("select li from ListItem li where li.store = :selectedStore", PlantItem.class);
-		typedQuery.setParameter("selectedStore", plantTypeName);
+		TypedQuery<PlantItem> typedQuery = em.createQuery("select pi from PlantItem pi where pi.plantType = :selectedPlantType", PlantItem.class);
+		typedQuery.setParameter("selectedPlantType", plantTypeName);
 
 		List<PlantItem> foundItems = typedQuery.getResultList();
 		em.close();
@@ -93,12 +97,12 @@ public class PlantItemHelper {
 	 * @param locationName
 	 * @return
 	 */
-	public List<PlantItem> searchForItemByItem(String locationName) {
+	public List<PlantItem> searchForItemByLocation(String locationName) {
 		// TODO Auto-generated method stub
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
-		TypedQuery<PlantItem> typedQuery = em.createQuery("select li from ListItem li where li.item = :selectedItem", PlantItem.class);
-		typedQuery.setParameter("selectedItem", locationName);
+		TypedQuery<PlantItem> typedQuery = em.createQuery("select pi from PlantItem pi where pi.location = :selectedLocation", PlantItem.class);
+		typedQuery.setParameter("selectedLocation", locationName);
 
 		List<PlantItem> foundItems = typedQuery.getResultList();
 		em.close();

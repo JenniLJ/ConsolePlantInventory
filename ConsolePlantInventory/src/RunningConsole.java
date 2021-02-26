@@ -1,4 +1,5 @@
 
+
 /**
  * @author jenni - jjarrell
  * CIS175 -Spring 2021
@@ -49,15 +50,16 @@ public class RunningConsole {
 			System.out.println("2 : Search by Location");
 			int searchBy = in.nextInt();
 			in.nextLine();
-			List<PlantItem> foundItems = null;
+			List<PlantItem> foundItems;
 			if (searchBy == 1) {
 				System.out.print("Enter the plant type name: ");
 				String plantTypeName = in.nextLine();
+				foundItems = pih.searchForItemByPlantType(plantTypeName);
 				
 			} else {
 				System.out.print("Enter the location: ");
 				String locationName = in.nextLine();
-				
+				foundItems = pih.searchForItemByLocation(locationName);
 
 			}
 
@@ -81,7 +83,7 @@ public class RunningConsole {
 					String newPlantType = in.nextLine();
 					toEdit.setPlantType(newPlantType);
 				} else if (update == 2) {
-					System.out.print("New Item: ");
+					System.out.print("New Location: ");
 					String newLocation = in.nextLine();
 					toEdit.setLocation(newLocation);
 				}
@@ -135,7 +137,7 @@ public class RunningConsole {
 
 		private static void viewTheList() {
 			// TODO Auto-generated method stub
-			List<PlantItem> allItems = pih.showAllItems();
+			List<PlantItem> allItems = pih.showAllPlantItems();
 			for(PlantItem singleItem : allItems){
 			System.out.println(singleItem.returnItemDetails());
 			

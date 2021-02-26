@@ -15,14 +15,14 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="plants")
+@Table(name="plantItems")
 
 public class PlantItem {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="ID")
 	private int id;
-	@Column(name="PLANT TYPE")
+	@Column(name="PLANTTYPE")
 	private String plantType;
 	@Column(name="LOCATION")
 	private String location;
