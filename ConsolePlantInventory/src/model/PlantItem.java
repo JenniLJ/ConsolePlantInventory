@@ -30,13 +30,13 @@ public class PlantItem {
 		public PlantItem() {
 		super();
 		// TODO Auto-generated constructor stub
-	}
+		}
 		
 		public PlantItem(String plantType, String location) {
 		super();
 		this.plantType = plantType;
 		this.location = location;
-	}
+	    }
 		
 	public int getId() {
 		return id;
