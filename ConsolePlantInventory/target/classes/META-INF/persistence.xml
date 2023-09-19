@@ -4,11 +4,11 @@
 		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
 		<class>model.PlantItem</class>
 		<properties>
-			<property name="eclipselink.exclude-eclipselink-orm" value="true"/>
+			<property name="eclipselink.ddl-generation" value="create-tables"/>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
-			<property name="javax.persistence.jdbc.user" value="admin"/>
-			<property name="javax.persistence.jdbc.password" value="Pretzel12"/>
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://cis175.ci3ixif2380s.us-east-1.rds.amazonaws.com/plantInvintory"/>
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/plantinventory"/>
+			<property name="javax.persistence.jdbc.user" value="root"/>
+			<property name="javax.persistence.jdbc.password" value="Fuzzbee12!"/>
 		</properties>
 	</persistence-unit>
 </persistence>
