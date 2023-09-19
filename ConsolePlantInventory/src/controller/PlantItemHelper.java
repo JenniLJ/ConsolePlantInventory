@@ -10,9 +10,9 @@ import javax.persistence.TypedQuery;
 import model.PlantItem;
 
 /**
- * @author jenni - jjarrell
- * CIS175 -Spring 2021
- * Feb 11, 2021
+ * @author jenni - jjarrell1
+ * CIS175 -Fall 2023
+ * Sept 19, 2023
  */
 public class PlantItemHelper {
 	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("ConsolePlantInventory");
@@ -34,17 +34,14 @@ public class PlantItemHelper {
 		em.getTransaction().begin();
 		TypedQuery<PlantItem> typedQuery = em.createQuery("select pi from PlantItem pi where pi.plantType = :selectedPlantType and pi.location = :selectedLocation", PlantItem.class);
 
-//Substitute parameter with actual data from the toDelete item
 		typedQuery.setParameter("selectedPlantType", toDelete.getPlantType());
 		typedQuery.setParameter("selectedLocation", toDelete.getLocation());
 
 		//we only want one result
 		typedQuery.setMaxResults(1);
 
-		//get the result and save it into a new list item
 		PlantItem result = typedQuery.getSingleResult();
 
-		//remove it
 		em.remove(result);
 		em.getTransaction().commit();
 		em.close();
@@ -70,7 +67,6 @@ public class PlantItemHelper {
 	 * @return
 	 */
 	public PlantItem searchForItemById(int idToEdit) {
-		// TODO Auto-generated method stub
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
 		PlantItem found = em.find(PlantItem.class, idToEdit);
@@ -83,7 +79,6 @@ public class PlantItemHelper {
 	 * @return
 	 */
 	public List<PlantItem> searchForItemByPlantType(String plantTypeName) {
-		// TODO Auto-generated method stub
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
 		TypedQuery<PlantItem> typedQuery = em.createQuery("select pi from PlantItem pi where pi.plantType = :selectedPlantType", PlantItem.class);
@@ -98,7 +93,6 @@ public class PlantItemHelper {
 	 * @return
 	 */
 	public List<PlantItem> searchForItemByLocation(String locationName) {
-		// TODO Auto-generated method stub
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
 		TypedQuery<PlantItem> typedQuery = em.createQuery("select pi from PlantItem pi where pi.location = :selectedLocation", PlantItem.class);

@@ -2,8 +2,8 @@ package model;
 
 /**
  * @author jenni - jjarrell
- * CIS175 -Spring 2021
- * Feb 11, 2021
+ * CIS175 -Fall 2023
+ * Sept 19, 2023
  */
 
 
@@ -29,7 +29,6 @@ public class PlantItem {
 	
 		public PlantItem() {
 		super();
-		// TODO Auto-generated constructor stub
 		}
 		
 		public PlantItem(String plantType, String location) {

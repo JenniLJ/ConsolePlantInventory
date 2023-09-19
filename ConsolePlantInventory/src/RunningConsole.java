@@ -1,9 +1,9 @@
 
 
 /**
- * @author jenni - jjarrell
- * CIS175 -Spring 2021
- * Feb 11, 2021
+ * @author jenni - jjarrell1
+ * CIS175 -Fall 2023
+ * Sept 19, 2023
  */
 
 
@@ -19,7 +19,6 @@ public class RunningConsole {
 		static PlantItemHelper pih = new PlantItemHelper();
 
 		private static void addAnItem() {
-			// TODO Auto-generated method stub
 			System.out.print("Enter a plant type: ");
 			String plantType = in.nextLine();
 			System.out.print("Enter a location: ");
@@ -31,7 +30,6 @@ public class RunningConsole {
 		}
 
 		private static void deleteAnItem() {
-			// TODO Auto-generated method stub
 			System.out.print("Enter the plant type to delete: ");
 			String plantType = in.nextLine();
 			System.out.print("Enter the location to delete: ");
@@ -44,7 +42,6 @@ public class RunningConsole {
 		}
 
 		private static void editAnItem() {
-			// TODO Auto-generated method stub
 			System.out.println("How would you like to search? ");
 			System.out.println("1 : Search by Plant Type");
 			System.out.println("2 : Search by Location");
@@ -98,7 +95,6 @@ public class RunningConsole {
 		}
 
 		public static void main(String[] args) {
-			// TODO Auto-generated method stub
 			runMenu();
 
 		}
@@ -136,7 +132,6 @@ public class RunningConsole {
 		}
 
 		private static void viewTheList() {
-			// TODO Auto-generated method stub
 			List<PlantItem> allItems = pih.showAllPlantItems();
 			for(PlantItem singleItem : allItems){
 			System.out.println(singleItem.returnItemDetails());
